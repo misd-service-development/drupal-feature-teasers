@@ -1,0 +1,54 @@
+<?php
+/**
+ * @file
+ * Code for the Teasers feature.
+ */
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function cambridge_teasers_entity_info_alter(&$entity_info) {
+  if (isset($entity_info['node']['view modes']['teaser'])) {
+    $entity_info['node']['view modes']['teaser']['label'] = 'Horizontal Teaser';
+  }
+
+  $entity_info['node']['view modes'] += array(
+    'vertical_teaser' => array(
+      'label' => t('Vertical Teaser'),
+      'custom settings' => TRUE,
+    ),
+    'sidebar_teaser' => array(
+      'label' => t('Sidebar Teaser'),
+      'custom settings' => TRUE,
+    ),
+  );
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function cambridge_teasers_theme_registry_alter(&$theme_registry) {
+  $theme_registry['node____teaser'] = array(
+    'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----teaser',
+    'type' => 'module',
+  );
+  $theme_registry['node____vertical_teaser'] = array(
+    'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----vertical-teaser',
+    'type' => 'module',
+  );
+  $theme_registry['node____sidebar_teaser'] = array(
+    'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----sidebar-teaser',
+    'type' => 'module',
+  );
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function cambridge_teasers_preprocess_node(&$vars) {
+  if (in_array($vars['view_mode'], array('teaser', 'vertical_teaser', 'sidebar_teaser'))) {
+    $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
+    $vars['theme_hook_suggestions'][] = 'node__' . $vars['nid'] . '__' . $vars['view_mode'];
+    $vars['theme_hook_suggestions'][] = 'node____' . $vars['view_mode'];
+  }
+}
