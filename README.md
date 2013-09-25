@@ -15,7 +15,7 @@ For sidebar teasers:
 
 ![Horizontal/vertical teaser display configuration](doc/sidebar_display.png)
 
-If you are using a `field_link` provided by the [Link feature](https://github.com/misd-service-development/drupal-feature-link) you also need to make your link field available (it doesn't matter what format setting you use).
+If you are using a `field_link` provided by the [Link feature](https://github.com/misd-service-development/drupal-feature-link) you also need to make your link field available (it doesn't matter what format setting you use). The teaser will then link to your custom URL rather than to the node.
 
 Creating a list of horizontal teasers
 -------------------------------------
