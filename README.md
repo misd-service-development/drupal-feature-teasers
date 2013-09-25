@@ -16,3 +16,40 @@ For sidebar teasers:
 ![Horizontal/vertical teaser display configuration](doc/sidebar_display.png)
 
 If you are using a `field_link` provided by the [Link feature](https://github.com/misd-service-development/drupal-feature-link) you also need to make your link field available (it doesn't matter what format setting you use).
+
+Creating a list of horizontal teasers
+-------------------------------------
+
+To create a list of sidebar teasers produced by a view, have a block with the following format options:
+
+![Horizontal teaser format options](doc/horizontal_view_format.png)
+
+The view block then needs to be set to appear on the appropriate page(s) in the 'Content' region.
+
+Creating a list of vertical teasers
+-----------------------------------
+
+To create a list of vertical teasers produced by a view, have a block with the following format options:
+
+![Vertical teaser format options](doc/vertical_view_format.png)
+
+Then change the format settings to:
+
+![Vertical teaser format settings](doc/vertical_view_style_options.png)
+
+This will create 2 columns. For 3 columns, for example, set the row class to `campl-column4`.
+
+Finally, set CSS class in the Advanced section to:
+
+![Vertical teaser CSS class](doc/vertical_view_advanced_css.png)
+
+The view block then needs to be set to appear on the appropriate page(s) in the 'Content' region.
+
+Creating a list of sidebar teasers
+----------------------------------
+
+To create a list of sidebar teasers produced by a view, have a block with the following format options:
+
+![Sidebar teaser format options](doc/sidebar_view_format.png)
+
+The view block then needs to be set to appear on the appropriate page(s) in the 'Sidebar' region.
