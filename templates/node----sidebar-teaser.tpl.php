@@ -34,6 +34,9 @@ endif;
       </div>
     <?php endif; ?>
     <div class="campl-content-container campl-vertical-teaser-txt clearfix">
+      <?php if ($display_submitted): ?>
+        <p class="campl-datestamp"><?php print $date; ?></p>
+      <?php endif; ?>
       <?php print render($content); ?>
       <a href="<?php print $url; ?>" class="campl-secondary-cta campl-float-right"><?php print $read_more; ?></a>
     </div>

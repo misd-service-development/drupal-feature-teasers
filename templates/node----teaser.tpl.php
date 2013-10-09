@@ -33,6 +33,9 @@ endif;
         <?php print render($title_prefix); ?>
         <h3 class='campl-teaser-title'><a href="<?php print $url; ?>"><?php print $title; ?></a></h3>
         <?php print render($title_suffix); ?>
+        <?php if ($display_submitted): ?>
+          <p class="campl-datestamp"><?php print $date; ?></p>
+        <?php endif; ?>
         <?php print render($content); ?>
         <a href="<?php print $url; ?>" class="campl-primary-cta"><?php print $read_more; ?></a>
       </div>

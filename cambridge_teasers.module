@@ -50,5 +50,6 @@ function cambridge_teasers_preprocess_node(&$vars) {
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['nid'] . '__' . $vars['view_mode'];
     $vars['theme_hook_suggestions'][] = 'node____' . $vars['view_mode'];
+    $vars['date'] = format_date($vars['node']->created, 'custom', 'j F Y');
   }
 }
