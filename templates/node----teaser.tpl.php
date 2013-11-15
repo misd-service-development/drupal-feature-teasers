@@ -7,7 +7,7 @@ if (array_key_exists('field_link', $content)):
   $url = $content['field_link']['#items'][0]['url'];
   $read_more = $content['field_link']['#items'][0]['title'];
 
-  if ($read_more == $url):
+  if (substr($read_more, 0, 80) == substr($url, 0, 80)):
     $read_more = t('Read more');
   endif;
 
