@@ -46,7 +46,7 @@ function cambridge_teasers_theme_registry_alter(&$theme_registry) {
     'type' => 'module',
   );
   $theme_registry['node____news_listing_item'] = array(
-    'template' => drupal_get_path('module', 'cambridge_news') . '/templates/node----news-listing-item',
+    'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----news-listing-item',
     'type' => 'module',
   );
 }
