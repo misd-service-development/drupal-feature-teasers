@@ -61,7 +61,7 @@ The view block then needs to be set to appear on the appropriate page(s) in the 
 Creating a list of news items
 -----------------------------
 
-To create a list of sidebar teasers produced by a view, have a block with the following format options:
+To create a list of news items produced by a view, have a block with the following format options:
 
 ![Format options](doc/news_listing_item_view_format.png)
 
