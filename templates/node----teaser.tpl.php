@@ -19,17 +19,21 @@ else:
   $read_more = t('Read more');
 endif;
 
+$has_image = isset($content['field_image']);
+
 ?>
 
 <div class="campl-content-container <?php print $classes; ?>" <?php print $attributes; ?>>
   <div class="campl-horizontal-teaser campl-teaser clearfix">
-    <div class="campl-column6">
-      <div class="campl-content-container campl-horizontal-teaser-img">
-        <?php print render($content['field_image']) ? : '&nbsp;'; ?>
+    <?php if ($has_image): ?>
+      <div class="campl-column6">
+        <div class="campl-content-container campl-horizontal-teaser-img">
+          <?php print render($content['field_image']) ? : '&nbsp;'; ?>
+        </div>
       </div>
-    </div>
-    <div class="campl-column6">
-      <div class="campl-content-container campl-horizontal-teaser-txt">
+    <?php endif; ?>
+    <div class="campl-column<?php if ($has_image): ?>6<?php else: ?>12<?php endif; ?>">
+      <div class="campl-content-container <?php if (!$has_image): ?>campl-no-padding<?php endif; ?> campl-horizontal-teaser-txt">
         <?php print render($title_prefix); ?>
         <h3 class='campl-teaser-title'><a href="<?php print $url; ?>"><?php print $title; ?></a></h3>
         <?php print render($title_suffix); ?>
