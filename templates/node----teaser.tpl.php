@@ -28,7 +28,7 @@ $has_image = isset($content['field_image']);
     <?php if ($has_image): ?>
       <div class="campl-column6">
         <div class="campl-content-container campl-horizontal-teaser-img">
-          <?php print render($content['field_image']) ? : '&nbsp;'; ?>
+          <?php print render($content['field_image']); ?>
         </div>
       </div>
     <?php endif; ?>
