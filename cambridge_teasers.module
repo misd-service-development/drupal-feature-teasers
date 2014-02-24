@@ -56,9 +56,9 @@ function cambridge_teasers_theme_registry_alter(&$theme_registry) {
  */
 function cambridge_teasers_preprocess_node(&$vars) {
   if (in_array($vars['view_mode'], array('teaser', 'vertical_teaser', 'sidebar_teaser', 'news_listing_item'))) {
+    $vars['theme_hook_suggestions'][] = 'node____' . $vars['view_mode'];
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['nid'] . '__' . $vars['view_mode'];
-    $vars['theme_hook_suggestions'][] = 'node____' . $vars['view_mode'];
     $vars['date'] = format_date($vars['node']->created, 'custom', 'j F Y');
   }
 }
