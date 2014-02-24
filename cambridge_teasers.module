@@ -21,6 +21,10 @@ function cambridge_teasers_entity_info_alter(&$entity_info) {
       'label' => t('Sidebar Teaser'),
       'custom settings' => TRUE,
     ),
+    'focus_on_teaser' => array(
+      'label' => t('Focus On Teaser'),
+      'custom settings' => TRUE,
+    ),
     'news_listing_item' => array(
       'label' => t('News Listing Item'),
       'custom settings' => TRUE,
@@ -45,6 +49,10 @@ function cambridge_teasers_theme_registry_alter(&$theme_registry) {
     'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----sidebar-teaser',
     'type' => 'module',
   );
+  $theme_registry['node____focus_on_teaser'] = array(
+    'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----focus-on-teaser',
+    'type' => 'module',
+  );
   $theme_registry['node____news_listing_item'] = array(
     'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----news-listing-item',
     'type' => 'module',
@@ -55,7 +63,9 @@ function cambridge_teasers_theme_registry_alter(&$theme_registry) {
  * Implements template_preprocess_node().
  */
 function cambridge_teasers_preprocess_node(&$vars) {
-  if (in_array($vars['view_mode'], array('teaser', 'vertical_teaser', 'sidebar_teaser', 'news_listing_item'))) {
+  $view_modes = array('teaser', 'vertical_teaser', 'sidebar_teaser', 'focus_on_teaser', 'news_listing_item');
+
+  if (in_array($vars['view_mode'], $view_modes)) {
     $vars['theme_hook_suggestions'][] = 'node____' . $vars['view_mode'];
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['nid'] . '__' . $vars['view_mode'];
