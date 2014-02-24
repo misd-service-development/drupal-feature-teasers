@@ -1,7 +1,7 @@
 Drupal 7 University of Cambridge teasers feature
 ================================================
 
-This feature adds node view modes for horizontal, vertical and sidebar teasers, as well as for news listing items. (The horizontal teaser actually replaces Drupal's default teaser.)
+This feature adds node view modes for horizontal, vertical, sidebar and focus on teasers, as well as for news listing items. (The horizontal teaser actually replaces Drupal's default teaser.)
 
 To have an image appear in the teaser use the `field_image` base image field provided by the [Images Styles feature](https://github.com/misd-service-development/drupal-feature-image-styles).
 
@@ -14,6 +14,10 @@ For both horizontal and vertical teasers:
 For sidebar teasers:
 
 ![Horizontal/vertical teaser display configuration](doc/sidebar_display.png)
+
+For focus on teasers:
+
+![Focus on teaser display configuration](doc/focus_on_display.png)
 
 For the 'News listing item' content type you will need to set the display settings to only show the (summary) body. This would typically look like:
 
@@ -57,6 +61,25 @@ To create a list of sidebar teasers produced by a view, have a block with the fo
 ![Sidebar teaser format options](doc/sidebar_view_format.png)
 
 The view block then needs to be set to appear on the appropriate page(s) in the 'Sidebar' region.
+
+Creating a list of focus on teasers
+-----------------------------------
+
+To create a list of focus on teasers produced by a view, have a block with the following format options:
+
+![Focus on teaser format options](doc/focus_on_view_format.png)
+
+Then change the format settings to:
+
+![Focus on teaser format settings](doc/vertical_view_style_options.png)
+
+This will create 2 columns. For 3 columns, for example, set the row class to `campl-column4`.
+
+Finally, set CSS class in the Advanced section to:
+
+![Focus on teaser CSS class](doc/vertical_view_advanced_css.png)
+
+The view block then needs to be set to appear on the appropriate page(s) in the 'Content' region.
 
 Creating a list of news items
 -----------------------------
