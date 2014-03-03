@@ -72,3 +72,19 @@ function cambridge_teasers_preprocess_node(&$vars) {
     $vars['date'] = format_date($vars['node']->created, 'custom', 'j F Y');
   }
 }
+
+/**
+ * Implements template_preprocess_field().
+ */
+function cambridge_teasers_preprocess_field(&$vars) {
+  $view_modes = array('teaser', 'vertical_teaser', 'sidebar_teaser', 'news_listing_item');
+
+  if (in_array($vars['element']['#view_mode'], $view_modes) && 'smart_trim_format' === $vars['element']['#formatter']) {
+    foreach ($vars['items'] as $key => $value) {
+      if (FALSE === strpos($vars['items'][$key]['#markup'], '<')) {
+        // Wrap smart-trimmed text that has stripped HTML in a paragraph element.
+        $vars['items'][$key]['#markup'] = '<p>' . $vars['items'][$key]['#markup'] . '</p>';
+      }
+    }
+  }
+}
