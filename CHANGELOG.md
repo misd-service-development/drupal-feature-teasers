@@ -1,6 +1,17 @@
 Changelog for 7.x-1.*
 =====================
 
+7.x-1.2
+-------
+
+11 April 2014.
+
+* Left-align horizontal teasers when there isn't an image.
+* Correct `theme_hook_suggestions` order.
+* Made compatible with PHP 5.2.
+* Add focus on display mode.
+* Wrap smart-trimmed text in a paragraph element.
+
 7.x-1.1
 -------
 
