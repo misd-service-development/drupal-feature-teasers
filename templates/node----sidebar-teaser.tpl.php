@@ -19,6 +19,8 @@ else:
   $read_more = t('Read more');
 endif;
 
+$has_image = isset($content['field_image']);
+
 ?>
 
 <div class="campl-content-container <?php print $classes; ?>" <?php print $attributes; ?>>
@@ -28,12 +30,12 @@ endif;
       <p class='campl-teaser-title'><a href="<?php print $url; ?>"><?php print $title; ?></a></p>
       <?php print render($title_suffix); ?>
     </div>
-    <?php if (array_key_exists('field_image', $content)): ?>
+    <?php if ($has_image): ?>
       <div class="campl-content-container campl-vertical-teaser-img">
         <?php print render($content['field_image']); ?>
       </div>
     <?php endif; ?>
-    <div class="campl-content-container campl-vertical-teaser-txt clearfix">
+    <div class="campl-content-container<?php if (!$has_image): print ' campl-no-top-padding'; endif; ?> campl-vertical-teaser-txt clearfix">
       <?php if ($display_submitted): ?>
         <p class="campl-datestamp"><?php print $date; ?></p>
       <?php endif; ?>

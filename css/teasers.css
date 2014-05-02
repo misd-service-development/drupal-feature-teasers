@@ -1,3 +1,7 @@
+.campl-promo-teaser .campl-vertical-teaser-txt.campl-no-top-padding {
+    padding-top: 0;
+}
+
 .campl-teasers-borders .campl-teaser-border {
     border-left: 1px solid #e4e4e4;
     margin-left: -1px;
