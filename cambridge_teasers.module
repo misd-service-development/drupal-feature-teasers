@@ -37,26 +37,9 @@ function cambridge_teasers_entity_info_alter(&$entity_info) {
  * Implements hook_theme_registry_alter().
  */
 function cambridge_teasers_theme_registry_alter(&$theme_registry) {
-  $theme_registry['node____teaser'] = array(
-    'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----teaser',
-    'type' => 'module',
-  );
-  $theme_registry['node____vertical_teaser'] = array(
-    'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----vertical-teaser',
-    'type' => 'module',
-  );
-  $theme_registry['node____sidebar_teaser'] = array(
-    'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----sidebar-teaser',
-    'type' => 'module',
-  );
-  $theme_registry['node____focus_on_teaser'] = array(
-    'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----focus-on-teaser',
-    'type' => 'module',
-  );
-  $theme_registry['node____news_listing_item'] = array(
-    'template' => drupal_get_path('module', 'cambridge_teasers') . '/templates/node----news-listing-item',
-    'type' => 'module',
-  );
+  $module_path = drupal_get_path('module', 'cambridge_teasers') . '/templates';
+
+  _theme_process_registry($theme_registry, 'phptemplate', 'theme_engine', 'cambridge_teasers', $module_path);
 }
 
 /**

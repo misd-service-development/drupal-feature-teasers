@@ -23,8 +23,8 @@ $has_image = isset($content['field_image']);
 
 ?>
 
-<div class="campl-content-container <?php print $classes; ?>" <?php print $attributes; ?>>
-  <div class="campl-horizontal-teaser campl-teaser clearfix">
+<div class="campl-content-container campl-vertical-padding <?php print $classes; ?>" <?php print $attributes; ?>>
+  <div class="campl-horizontal-teaser campl-teaser campl-teaser-border campl-content-container campl-side-padding clearfix">
     <?php if ($has_image): ?>
       <div class="campl-column6">
         <div class="campl-content-container campl-horizontal-teaser-img">
@@ -45,4 +45,8 @@ $has_image = isset($content['field_image']);
       </div>
     </div>
   </div>
+</div>
+
+<div class="campl-content-container campl-side-padding">
+  <hr class="campl-teaser-divider">
 </div>

@@ -21,8 +21,8 @@ endif;
 
 ?>
 
-<div class="campl-content-container <?php print $classes; ?>" <?php print $attributes; ?>>
-  <div class="campl-vertical-teaser campl-teaser">
+<div class="campl-content-container campl-vertical-padding <?php print $classes; ?>" <?php print $attributes; ?>>
+  <div class="campl-vertical-teaser campl-teaser campl-teaser-border campl-content-container campl-side-padding">
     <?php if (array_key_exists('field_image', $content)): ?>
       <div class="campl-content-container campl-vertical-teaser-img">
         <?php print render($content['field_image']); ?>
@@ -38,5 +38,10 @@ endif;
       <?php print render($content); ?>
       <a href="<?php print $url; ?>" class="campl-primary-cta"><?php print $read_more; ?></a>
     </div>
+
   </div>
+</div>
+
+<div class="campl-content-container campl-side-padding">
+  <hr class="campl-teaser-divider">
 </div>

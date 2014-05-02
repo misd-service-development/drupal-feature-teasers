@@ -7,3 +7,8 @@ project = cambridge_teasers
 dependencies[] = cambridge_image_styles
 dependencies[] = features
 features[features_api][] = api:2
+
+stylesheets[all][] = "css/teasers.css"
+
+scripts[] = 'js/teasers.js'
+scripts[] = 'js/jquery.matchHeight-min.js'
