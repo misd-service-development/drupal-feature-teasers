@@ -1,6 +1,15 @@
 Changelog for 7.x-1.*
 =====================
 
+7.x-1.3
+-------
+
+27 May 2014.
+
+* Add borders around horizontal and vertical teasers.
+* Remove unnecessary padding when a sidebar teaser doesn't have an image.
+* Style dates on all teasers, not just the news listing item.
+
 7.x-1.2
 -------
 
