@@ -37,7 +37,7 @@ $i = 0;
     if (0 === $columnsInRow) {
       // start of a new row
       $attributes['class'][] .= 'campl-column-first';
-      print '<div class="campl-row">';
+      print '<div class="campl-row clearfix">';
     }
     elseif (($columnsInRow + $columns) > 12) {
       // we're going to overflow a row (ie it doesn't add up to 12), so start again
@@ -49,7 +49,7 @@ $i = 0;
         print '<div class="campl-column12"><div class="campl-content-container campl-side-padding"><hr class="campl-teaser-divider"></div></div>';
       }
 
-      print '<div class="campl-row">';
+      print '<div class="campl-row clearfix">';
       $columnsInRow = 0;
     }
     elseif (($columnsInRow + $columns) == 12) {
