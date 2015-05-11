@@ -1,6 +1,14 @@
 Changelog for 7.x-1.*
 =====================
 
+7.x-1.4
+-------
+
+11 May 2015.
+
+* Fix teaser height-matching when loading content through Ajax.
+* Prevent the pager from floating upwards when a row is incomplete.
+
 7.x-1.3
 -------
 
