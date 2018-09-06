@@ -15,8 +15,12 @@ if (array_key_exists('field_link', $content)):
     $content['field_image'][0]['#path'] = array('path' => $url);
   endif;
 else:
-  $url = $node_url;
-  $read_more = t('Read more');
+  if ($type == 'link'):
+    $url = NULL;
+  else:
+    $url = $node_url;
+    $read_more = t('Read more');
+  endif;
 endif;
 
 $has_image = isset($content['field_image']);
@@ -41,7 +45,9 @@ $has_image = isset($content['field_image']);
           <p class="campl-datestamp"><?php print $date; ?></p>
         <?php endif; ?>
         <?php print render($content); ?>
-        <a href="<?php print $url; ?>" class="campl-primary-cta"><?php print $read_more; ?></a>
+        <?php if ($url): ?>
+          <a href="<?php print $url; ?>" class="campl-primary-cta"><?php print $read_more; ?></a>
+        <?php endif; ?>
       </div>
     </div>
   </div>
