@@ -23,6 +23,14 @@ else:
   endif;
 endif;
 
+$has_image = isset($content['field_image']);
+
+if ($has_image && isset($url)):
+  if(isset($content['field_image'][0]['#item']) && empty($content['field_image'][0]['#item']['alt']) ):
+    $content['field_image'][0]['#item']['alt'] = $read_more . t(' at: ') . $title;
+  endif;
+endif;
+
 ?>
 
 <div class="campl-content-container campl-vertical-padding <?php print $classes; ?>" <?php print $attributes; ?>>
