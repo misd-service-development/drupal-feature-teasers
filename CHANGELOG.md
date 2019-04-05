@@ -1,6 +1,21 @@
 Changelog for 7.x-1.*
 =====================
 
+7.x-1.6
+-------
+
+5 April 2019
+
+* Add accessible alt text to teasers.
+
+7.x-1.5
+-------
+
+18 December 2018
+
+* Allow horizontal and vertical teasers to have no link.
+* Avoid warnings by checking that '#formatter is set before using it.
+
 7.x-1.4
 -------
 
