@@ -5,6 +5,8 @@
 8 October 2020
 
 - Include querystring and fragment in urls.
+- Make 'read more' links accessible.
+- Update check on link title
 
   7.x-1.6
 
