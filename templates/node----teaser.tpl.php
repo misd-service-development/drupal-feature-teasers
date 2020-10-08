@@ -4,11 +4,20 @@ hide($content['links']);
 
 if (array_key_exists('field_link', $content)):
   hide($content['field_link']);
-  $url = $content['field_link']['#items'][0]['url'];
-  $read_more = $content['field_link']['#items'][0]['title'];
 
-  if (substr($read_more, 0, 80) == substr($url, 0, 80)):
-    $read_more = t('Read more');
+  // Build link with querystring and fragment
+  $options = array (
+    'fragment' => $node->field_link[0]['fragment'],
+    'query'    => $node->field_link[0]['query'],
+  );
+  $url = url($node->field_link[0]['url'], $options);
+  
+  // If the link has no title or is read more, set to read more with context for screen-readers
+  $original_title = $node->field_link[0]['original_title'];
+  if(empty(trim($original_title)) || strcasecmp(trim($original_title), "Read more") == 0):
+    $read_more = t('Read more') . '<span class="element-invisible"> at: ' . $title . '</span>';
+  else:
+    $read_more = $original_title;
   endif;
 
   if (array_key_exists('field_image', $content)):
@@ -19,7 +28,7 @@ else:
     $url = NULL;
   else:
     $url = $node_url;
-    $read_more = t('Read more');
+    $read_more = t('Read more') . '<span class="element-invisible"> at: ' . $title . '</span>';
   endif;
 endif;
 

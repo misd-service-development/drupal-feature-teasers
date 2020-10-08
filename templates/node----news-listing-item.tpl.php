@@ -4,7 +4,12 @@ hide($content['links']);
 
 if (array_key_exists('field_link', $content)):
   hide($content['field_link']);
-  $url = $content['field_link']['#items'][0]['url'];
+  // Build link with querystring and fragment
+  $options = array (
+    'fragment' => $node->field_link[0]['fragment'],
+    'query'    => $node->field_link[0]['query'],
+  );
+  $url = url($node->field_link[0]['url'], $options);
 else:
   $url = $node_url;
 endif;
