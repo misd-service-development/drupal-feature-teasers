@@ -26,6 +26,27 @@
     border-right: 0;
 }
 
+.campl-primary-cta.teaser-cta-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.campl-horizontal-teaser-txt,
+.campl-vertical-teaser-txt  {
+    margin-bottom: 2.5rem;
+}
+
+.campl-focus-teaser-txt .campl-teaser-title {
+    color: white;
+}
+
+.campl-promo-teaser .campl-secondary-cta {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+}
+
 @media (min-width: 768px) {
     .campl-hide-teaser-divider .campl-teaser-divider {
         display: none;

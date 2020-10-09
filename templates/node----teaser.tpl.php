@@ -43,7 +43,6 @@ $has_url = isset($url);
 if ($has_image):
   unset($content['field_image'][0]['#path']);
 endif;
-
 ?>
 
 <div class="campl-content-container campl-vertical-padding <?php print $classes; ?>" <?php print $attributes; ?>>
