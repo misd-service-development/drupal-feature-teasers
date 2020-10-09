@@ -37,6 +37,7 @@ else:
 endif;
 
 $has_image = isset($content['field_image']);
+$has_url = isset($url);
 
 // We will have a single link for the teaser so ensure the image itself isn't linked
 if ($has_image):
@@ -47,23 +48,32 @@ endif;
 
 <div class="campl-content-container campl-vertical-padding <?php print $classes; ?>" <?php print $attributes; ?>>
   <div class="campl-vertical-teaser campl-teaser campl-teaser-border campl-content-container campl-side-padding">
+
+    <?php if ($has_url): ?>
+      <a href="<?php print $url; ?>">
+        <div class="campl-primary-cta teaser-cta-button"><?php print $read_more; ?></div>
+    <?php endif; ?>
+
     <?php if (array_key_exists('field_image', $content)): ?>
       <div class="campl-content-container campl-vertical-teaser-img">
         <?php print render($content['field_image']); ?>
       </div>
     <?php endif; ?>
+
+    <?php if ($has_url): ?>
+      </a>
+    <?php endif; ?>
+
     <div class="campl-content-container campl-vertical-teaser-txt">
       <?php print render($title_prefix); ?>
-      <h3 class='campl-teaser-title'><a href="<?php print $url; ?>"><?php print $title; ?></a></h3>
+      <h3 class='campl-teaser-title'><?php print $title; ?></h3>
       <?php print render($title_suffix); ?>
       <?php if ($display_submitted): ?>
         <p class="campl-datestamp"><?php print $date; ?></p>
       <?php endif; ?>
       <?php print render($content); ?>
-        <?php if ($url): ?>
-          <a href="<?php print $url; ?>" class="campl-primary-cta"><?php print $read_more; ?></a>
-        <?php endif; ?>
     </div>
+
   </div>
 </div>
 
