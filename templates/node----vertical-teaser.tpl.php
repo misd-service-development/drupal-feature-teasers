@@ -4,15 +4,20 @@ hide($content['links']);
 
 if (array_key_exists('field_link', $content)):
   hide($content['field_link']);
+
+  // get field data
+  $field = field_get_items('node', $node, 'field_link');
+  $link_value = field_view_value('node', $node, 'field_link', $field[0]);
+
   // Build link with querystring and fragment
   $options = array (
-    'fragment' => $node->field_link[0]['fragment'],
-    'query'    => $node->field_link[0]['query'],
+    'fragment' => $link_value['#element']['fragment'],
+    'query'    => $link_value['#element']['query'],
   );
-  $url = url($node->field_link[0]['url'], $options);
+  $url = url($link_value['#element']['url'], $options);
   
   // If the link has no title or is read more, set to read more with context for screen-readers
-  $original_title = $node->field_link[0]['original_title'];
+  $original_title = $link_value['#element']['original_title'];
   if(empty(trim($original_title)) || strcasecmp(trim($original_title), "Read more") == 0):
     $read_more = t('Read more') . '<span class="element-invisible"> at: ' . $title . '</span>';
   else:
