@@ -28,12 +28,12 @@
 
 .campl-primary-cta.teaser-cta-button {
     position: absolute;
-    bottom: 20px;
+    bottom: 0;
     right: 20px;
 }
 
-.campl-horizontal-teaser-txt,
-.campl-vertical-teaser-txt  {
+.campl-horizontal-teaser .campl-horizontal-teaser-txt,
+.campl-vertical-teaser .campl-vertical-teaser-txt  {
     margin-bottom: 2.5rem;
 }
 
@@ -43,8 +43,8 @@
 
 .campl-promo-teaser .campl-secondary-cta {
     position: absolute;
-    bottom: 30px;
-    right: 40px;
+    bottom: 10px;
+    right: 20px;
 }
 
 @media (min-width: 768px) {
