@@ -1,3 +1,9 @@
+.campl-teaser {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
 .campl-teaser p.campl-datestamp {
     color: #777777;
     background: none;
