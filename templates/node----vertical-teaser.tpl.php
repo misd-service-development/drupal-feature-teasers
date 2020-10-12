@@ -46,7 +46,7 @@ endif;
 
 ?>
 
-<div class="campl-content-container campl-vertical-padding <?php print $classes; ?>" <?php print $attributes; ?>>
+<div class="campl-vertical-padding <?php print $classes; ?>" <?php print $attributes; ?>>
   <div class="campl-vertical-teaser campl-teaser campl-teaser-border campl-content-container campl-side-padding">
 
     <?php if ($has_url): ?>
