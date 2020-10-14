@@ -53,6 +53,19 @@
     right: 20px;
 }
 
+.campl-promo-teaser .campl-teaser-title {
+    color: black;
+}
+
+.campl-promo-teaser a:hover {
+   text-decoration: none;
+}
+
+.campl-promo-teaser a .campl-teaser-title:hover {
+    color: black;
+    text-decoration: underline;
+}
+
 @media (min-width: 768px) {
     .campl-hide-teaser-divider .campl-teaser-divider {
         display: none;

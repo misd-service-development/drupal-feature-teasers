@@ -48,22 +48,22 @@ endif;
 
 <div class="campl-content-container <?php print $classes; ?>" <?php print $attributes; ?>>
   <div class="campl-vertical-teaser campl-teaser campl-promo-teaser">
-    <div class="campl-content-container campl-vertical-teaser-txt">
-      <?php print render($title_prefix); ?>
-      <h2 class='campl-teaser-title'><?php print $title; ?></h2>
-      <?php print render($title_suffix); ?>
-    </div>
+    <?php print render($title_prefix); ?>
 
     <?php if ($has_url): ?>
       <a href="<?php print $url; ?>">
       <span class="campl-secondary-cta teaser-cta-button campl-float-right"><?php print $read_more; ?></span>
     <?php endif; ?>
 
-    <?php if ($has_image): ?>
-      <div class="campl-content-container campl-vertical-teaser-img">
-        <?php print render($content['field_image']); ?>
+      <div class="campl-content-container campl-vertical-teaser-txt">
+        <h2 class='campl-teaser-title'><?php print $title; ?></h2>
       </div>
-    <?php endif; ?>
+
+      <?php if ($has_image): ?>
+        <div class="campl-content-container campl-vertical-teaser-img">
+          <?php print render($content['field_image']); ?>
+        </div>
+      <?php endif; ?>
 
     <?php if ($has_url): ?>
       </a>
@@ -76,5 +76,6 @@ endif;
       <?php print render($content); ?>
 
     </div>
+    <?php print render($title_suffix); ?>
   </div>
 </div>
