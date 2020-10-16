@@ -5,15 +5,19 @@ hide($content['links']);
 if (array_key_exists('field_link', $content)):
   hide($content['field_link']);
 
+  // get field data
+  $field = field_get_items('node', $node, 'field_link');
+  $link_value = field_view_value('node', $node, 'field_link', $field[0]);
+
   // Build link with querystring and fragment
   $options = array (
-    'fragment' => $node->field_link[0]['fragment'],
-    'query'    => $node->field_link[0]['query'],
+    'fragment' => $link_value['#element']['fragment'],
+    'query'    => $link_value['#element']['query'],
   );
-  $url = url($node->field_link[0]['url'], $options);
+  $url = url($link_value['#element']['url'], $options);
   
   // If the link has no title or is read more, set to read more with context for screen-readers
-  $original_title = $node->field_link[0]['original_title'];
+  $original_title = $link_value['#element']['original_title'];
   if(empty(trim($original_title)) || strcasecmp(trim($original_title), "Read more") == 0):
     $read_more = t('Read more') . '<span class="element-invisible"> at: ' . $title . '</span>';
   else:
@@ -24,22 +28,33 @@ if (array_key_exists('field_link', $content)):
     $content['field_image'][0]['#path'] = array('path' => $url);
   endif;
 else:
-  $url = $node_url;
-  $read_more = t('Read more') . '<span class="element-invisible"> at: ' . $title . '</span>';
+  if ($type == 'link'):
+    $url = NULL;
+  else:
+    $url = $node_url;
+    $read_more = t('Read more') . '<span class="element-invisible"> at: ' . $title . '</span>';
+  endif;
 endif;
 
 $has_image = isset($content['field_image']);
+$has_url = isset($url);
 
-if ($has_image && isset($url)):
-  if(isset($content['field_image'][0]['#item']) && empty($content['field_image'][0]['#item']['alt']) ):
-    $content['field_image'][0]['#item']['alt'] = $read_more . t(' at: ') . $title;
-  endif;
+// We will have a single link for the teaser so ensure the image itself isn't linked
+if ($has_image):
+  unset($content['field_image'][0]['#path']);
 endif;
 
 ?>
 
 <div class="campl-content-container campl-side-padding <?php print $classes; ?>" <?php print $attributes; ?>>
   <div class="campl-horizontal-teaser campl-teaser clearfix campl-focus-teaser">
+    <?php print render($title_prefix); ?>
+
+    <?php if ($has_url): ?>
+      <a href="<?php print $url; ?>">
+      <span class="ir campl-focus-link"><?php print $read_more; ?></span>
+    <?php endif; ?>
+
     <div class="campl-focus-teaser-img">
       <div class="campl-content-container campl-horizontal-teaser-img">
         <?php if ($has_image): ?>
@@ -47,13 +62,17 @@ endif;
         <?php endif; ?>
       </div>
     </div>
+
     <div class="campl-focus-teaser-txt">
       <div class="campl-content-container campl-horizontal-teaser-txt">
-        <?php print render($title_prefix); ?>
-        <h3 class="campl-teaser-title"><a href="<?php print $url; ?>"><?php print $title; ?></a></h3>
-        <?php print render($title_suffix); ?>
-        <a href="<?php print $url; ?>" class="ir campl-focus-link"><?php print $read_more; ?></a>
+        <h3 class="campl-teaser-title"><?php print $title; ?></h3>
       </div>
     </div>
+
+    <?php if ($has_url): ?>
+      </a>
+    <?php endif; ?>
+
+    <?php print render($title_suffix); ?>
   </div>
 </div>

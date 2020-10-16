@@ -1,3 +1,9 @@
+.campl-teaser {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
 .campl-teaser p.campl-datestamp {
     color: #777777;
     background: none;
@@ -24,6 +30,44 @@
 
 .campl-column-end.campl-teasers-borders .campl-teaser-border {
     border-right: 0;
+}
+
+.campl-primary-cta.teaser-cta-button {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+}
+
+.campl-horizontal-teaser .campl-horizontal-teaser-txt,
+.campl-vertical-teaser .campl-vertical-teaser-txt  {
+    padding-bottom: 2rem;
+}
+
+.campl-focus-teaser-txt .campl-teaser-title {
+    color: white;
+}
+
+.campl-promo-teaser .campl-secondary-cta {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+.campl-promo-teaser .campl-teaser-title {
+    color: black;
+}
+
+.campl-promo-teaser a:hover {
+   text-decoration: none;
+}
+
+.campl-promo-teaser a .campl-teaser-title:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.campl-promo-teaser a .teaser-cta-button:hover {
+    text-decoration: underline;
 }
 
 @media (min-width: 768px) {
